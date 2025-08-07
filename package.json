@@ -1,0 +1,12 @@
+{
+  "name": "ocr-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vercel serverless OCR API using tesseract.js",
+  "dependencies": {
+    "formidable": "^3.5.1",
+    "tesseract.js": "^4.0.2"
+  }
+}
+
+
