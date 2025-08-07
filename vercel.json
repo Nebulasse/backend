@@ -5,7 +5,13 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/api/ocr.js" }
-  ]
+  ],
+  "functions": {
+    "api/ocr.js": {
+      "maxDuration": 60,
+      "memory": 1024
+    }
+  }
 }
 
 
