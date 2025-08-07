@@ -3,7 +3,8 @@ const formidable = require('formidable');
 
 // Используем CDN пути, чтобы не требовались локальные wasm-файлы в серверлес-среде
 const TESSERACT_WORKER_PATH = 'https://unpkg.com/tesseract.js@v4.0.2/dist/worker.min.js';
-const TESSERACT_CORE_PATH = 'https://unpkg.com/tesseract.js-core@v5.0.2/tesseract-core-simd.wasm.js';
+// ВАЖНО: corePath должен указывать на JS-лоадер, а .wasm будет загружен из той же директории автоматически
+const TESSERACT_CORE_PATH = 'https://unpkg.com/tesseract.js-core@v5.0.2/tesseract-core-simd.js';
 const TESSERACT_LANG_PATH = 'https://tessdata.projectnaptha.com/4.0.0';
 
 module.exports.config = {
