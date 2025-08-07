@@ -1,13 +1,13 @@
-import { createWorker } from 'tesseract.js';
-import formidable from 'formidable';
+const { createWorker } = require('tesseract.js');
+const formidable = require('formidable');
 
-export const config = {
+module.exports.config = {
   api: {
     bodyParser: false,
   },
 };
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   if (req.method === 'GET') return res.status(200).json({ ok: true });
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     if (!file) return res.status(400).json({ error: 'file/image is required' });
 
     const langParam = String(fields.language || fields.lang || '').toLowerCase();
-    const lang = langParam === 'rus' || langParam === 'ru' ? 'rus+eng' : 'eng';
+    const lang = (langParam === 'rus' || langParam === 'ru') ? 'rus+eng' : 'eng';
 
     const worker = await createWorker();
     await worker.loadLanguage(lang);
@@ -37,6 +37,6 @@ export default async function handler(req, res) {
     console.error('Vercel OCR error:', error);
     return res.status(500).json({ error: error?.message || 'OCR failed' });
   }
-}
+};
 
 
