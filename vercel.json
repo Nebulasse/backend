@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "api/ocr.js", "use": "@vercel/node" },
-    { "src": "api/premium/**/*.ts", "use": "@vercel/node" }
+    { "src": "api/premium/**/*.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/api/ocr", "dest": "/api/ocr.js" }
