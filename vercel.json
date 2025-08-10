@@ -1,7 +1,12 @@
 {
   "version": 2,
-  "builds": [{ "src": "api/ocr.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/api/ocr", "dest": "/api/ocr.js" }],
+  "builds": [
+    { "src": "api/ocr.js", "use": "@vercel/node" },
+    { "src": "api/premium/**/*.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/ocr", "dest": "/api/ocr.js" }
+  ],
   "functions": {
     "api/ocr.js": {
       "runtime": "nodejs20.x",
