@@ -1,28 +1,8 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "api/ocr.js", "use": "@vercel/node" },
-    { "src": "api/premium/**/*.js", "use": "@vercel/node" },
-    { "src": "api/auth/vk/start.js", "use": "@vercel/node" },
-    { "src": "api/auth/vk/callback.js", "use": "@vercel/node" },
-    { "src": "api/auth/vk/native-login.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/ocr", "dest": "/api/ocr.js" },
-    { "src": "/api/premium/plans", "dest": "/api/premium/plans.js" },
-    { "src": "/api/premium/create-payment", "dest": "/api/premium/create-payment.js" },
-    { "src": "/api/premium/payment", "dest": "/api/premium/payment.js" },
-    { "src": "/api/premium/confirm/(?<paymentId>[^/]+)", "dest": "/api/premium/confirm/[paymentId].js" },
-    { "src": "/api/premium/webhook", "dest": "/api/premium/webhook.js" },
-    { "src": "/api/auth/vk/start", "dest": "/api/auth/vk/start.js" },
-    { "src": "/api/auth/vk/callback", "dest": "/api/auth/vk/callback.js" },
-    { "src": "/api/auth/vk/native-login", "dest": "/api/auth/vk/native-login.js" }
-  ],
   "functions": {
-    "api/ocr.js": {
-      "runtime": "nodejs20.x",
-      "maxDuration": 60,
-      "memory": 1024
+    "api/**/*.js": {
+      "runtime": "nodejs20.x"
     }
   }
 }
