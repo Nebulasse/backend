@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const clientId = process.env.VK_CLIENT_ID;
     const redirectUri = `${process.env.PUBLIC_BASE_URL || ''}/api/auth/vk/callback`;

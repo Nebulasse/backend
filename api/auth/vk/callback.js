@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
 // Helper to build small HTML page that posts message back to opener and closes
 function postMessageAndClose(payload) {
@@ -20,7 +20,7 @@ function postMessageAndClose(payload) {
 </body></html>`;
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const code = req.query.code;
     const error = req.query.error;
